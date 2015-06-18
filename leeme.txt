@@ -3,3 +3,13 @@ La intención es copiar el modulo que existe en Joomla 2.5 con el nombre mod_cus
 Por ejemplo:
 Un modulo donde podamos meter html y con link descarga de una app de android, es absurdo que se muestre otro dispositivo que no sea
 android.
+
+
+== Problemas encontrados  ==
+- No carga en la parte administrativa el editor para poder meter el contenido.
+
+
+
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_CUSTOM_HTML" />
+Esta linea la elimine y lo único que hace es el icono de ayuda llevarte al apartado de ayuda modulo de custom
+

@@ -86,12 +86,7 @@
 						value="static"></option>
 				</field>
 			</fieldset>
-			<fieldset name="Other advanced">
-			<field label ="Test Field"/>
-			<field name="test1"  type="editor" width="300" filter="safehtml" />
-			</fieldset>
-
-			
+				
 			
 		</fields>
 		
