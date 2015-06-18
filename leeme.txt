@@ -11,6 +11,7 @@ android.
 
 
 
+
 == Otros detalles ===
 ELIMINO LA LINEA 
 	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_CUSTOM_HTML" />
