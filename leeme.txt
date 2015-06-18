@@ -6,10 +6,14 @@ android.
 
 
 == Problemas encontrados  ==
+- Al instalar , lo hace perfectamente, pero la descripcion del modulo no lo muestra , en su lugar muestra la constante MOD_DISPCUSTOM_XML_DESCRIPTION ( Creo que el error es que tengo subir el fichero .sys.ini de lenguaje a la carpeta language de administrator. 
 - No carga en la parte administrativa el editor para poder meter el contenido.
 
 
 
+== Otros detalles ===
+ELIMINO LA LINEA 
 	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_CUSTOM_HTML" />
-Esta linea la elimine y lo único que hace es el icono de ayuda llevarte al apartado de ayuda modulo de custom
+DE mod_dispcustom.xml ya no sabía que hacía.
+Hice pruebas, y lo único que hace es el icono de ayuda llevarte al apartado de ayuda modulo de custom
 
