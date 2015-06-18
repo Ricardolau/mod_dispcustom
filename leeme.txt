@@ -1,0 +1,5 @@
+=== MODULO CUSTOM JOOMLA 2.5 ADAPTABLE A DISPOSITIVO ===
+La intención es copiar el modulo que existe en Joomla 2.5 con el nombre mod_custom y poder añadir código para podamos seleccionar el dispositivo en el que se va cargar.
+Por ejemplo:
+Un modulo donde podamos meter html y con link descarga de una app de android, es absurdo que se muestre otro dispositivo que no sea
+android.
