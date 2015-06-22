@@ -19,19 +19,21 @@
 		<folder>language</folder>
 	</files>
 	<languages>
-		<language tag="en-GB">/language/en-GB.mod_dispcustom.ini</language>
-		<language tag="en-GB">/language/en-GB.mod_dispcustom.sys.ini</language>
-		<language tag="es-ES">/language/es-ES.mod_dispcustom.ini</language>
-		<language tag="es-ES">/language/es-ES.mod_dispcustom.sys.ini</language>
+		<language tag="en-GB">/language/en-GB/en-GB.mod_dispcustom.ini</language>
+		<language tag="en-GB">/language/en-GB/en-GB.mod_dispcustom.sys.ini</language>
+		<language tag="es-ES">/language/es-ES/es-ES.mod_dispcustom.ini</language>
+		<language tag="es-ES">/language/es-ES/es-ES.mod_dispcustom.sys.ini</language>
 	</languages>
 
-	
 
 	<config>
 		
 		<fields name="params">
 			
 			<fieldset name="basic">
+				<field name="article_id" type="sql" label="Select an article" query="SELECT id AS value,title AS article_id, concat( id,':',title) AS IdTitulo FROM #__content ORDER BY title ASC" value_field="IdTitulo" /> 
+				
+				
 				<field
 					name="prepare_content"
 					type="radio"
@@ -86,7 +88,11 @@
 						value="static"></option>
 				</field>
 			</fieldset>
-				
+			<fieldset name="Other advanced">
+				<field name="test1"  type="editor" width="100%"  />
+			</fieldset>
+
+			
 			
 		</fields>
 		

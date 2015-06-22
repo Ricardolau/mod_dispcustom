@@ -1,7 +1,11 @@
 === MODULO CUSTOM JOOMLA 2.5 ADAPTABLE A DISPOSITIVO ===
 Replanteamiento de componente:
 - Crear un componente que cargue un articulo y lo muestre en la posición que indiquemos.
-- En la parte administrativa que nos permita seleccionar un articulo por ID y mostrando Titulo.
+- En la parte administrativa que nos permita 
+        -Seleccionar un articulo : Nos haga un selecte y nos muestre el ID del articulos y su titulo.
+        -Que tenga un select que nos permita cambiar el nombre del modulo con por el titulo del articulo.
+        -Que nos permita añadir contenido con plugin.. ???
+        
 
 
 === PASOS ANTERIORES ===

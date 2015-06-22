@@ -11,6 +11,11 @@ defined('_JEXEC') or die;
 ?>
 
 <!-- Custom para dispositivos -->
-<div class="custom<?php echo $moduleclass_sfx ?>" <?php if ($params->get('backgroundimage')): ?> style="background-image:url(<?php echo $params->get('backgroundimage');?>)"<?php endif;?> >
-	<?php echo $module->content;?>
+<div class="NuevoCustom<?php echo $moduleclass_sfx ?>" <?php if ($params->get('backgroundimage')): ?> style="background-image:url(<?php echo $params->get('backgroundimage');?>)"<?php endif;?> >
+	<?php echo 'Ver que sucede;';
+	echo '<pre>';
+	echo print_r($module);
+	echo '</pre>';
+	
+	?>
 </div>
