@@ -10,10 +10,11 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>info@solucionesvigo.es</authorEmail>
 	<authorUrl>www.solucionesvigo.es</authorUrl>
-	<version>2.5.0</version>
+	<version>1.0.0 Beta</version>
 	<description>MOD_DISPCUSTOM_XML_DESCRIPTION</description>
 	<files>
 		<filename module="mod_dispcustom">mod_dispcustom.php</filename>
+		<filename>helper.php</filename>
 		<filename>index.html</filename>
 		<folder>tmpl</folder>
 		<folder>language</folder>
@@ -33,6 +34,20 @@
 			<fieldset name="basic">
 				<field name="article_id" type="sql" label="Select an article" query="SELECT id AS value,title AS article_id, concat( id,':',title) AS IdTitulo FROM #__content ORDER BY title ASC" value_field="IdTitulo" /> 
 				
+
+				<field name="sistemaoperativo" type="checkboxes" label="Sistemas Operativo">
+					<option value="win">Windows</option>
+					<option value="mac">Mac</option>
+					<option value="linux">Linux</option>
+					<option value="android">Android</option>
+					<option value="OS">OS</option>
+				</field>
+				<field name="navegador" type="checkboxes" label="Navegador">
+					<option value="exp">Explorer</option>
+					<option value="chrome">Chrome</option>
+					<option value="Firefox">Mozilla</option>
+				</field>
+
 				
 				<field
 					name="prepare_content"
@@ -88,10 +103,7 @@
 						value="static"></option>
 				</field>
 			</fieldset>
-			<fieldset name="Other advanced">
-				<field name="test1"  type="editor" width="100%"  />
-			</fieldset>
-
+			
 			
 			
 		</fields>

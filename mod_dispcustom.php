@@ -11,6 +11,11 @@ defined('_JEXEC') or die;
 
 //-- Include the helper file
 require_once dirname(__FILE__).'/helper.php';
+// Cargamos datos de item que seleccionamos en parametros (helper)
+$items = ModdispcustomHelper::getItems($params);
+// Cargamos datos de cliente en bruto( datos sistema opertativo y mas de usuario)
+$brutoclient = ModdispcustomHelper::getBrutocliente();
+$cliente = ModdispcustomHelper::getcliente();
 
 if ($params->def('prepare_content', 1))
 {

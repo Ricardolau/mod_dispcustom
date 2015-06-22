@@ -25,6 +25,9 @@ Solucionado creando estructura de carpetas en languages.
 https://docs.joomla.org/J2.5:Developing_a_MVC_Component/Adding_language_management
 
 
+- La clase que pretendía utilizar:JApplicationWebClient()
+Me parece que solo vale para 3.2 , por lo que tendré que buscar otra soluion.
+http://forum.joomla.org/viewtopic.php?f=713&t=889634
 
 
 
