@@ -34,7 +34,9 @@ class ModdispcustomHelper
     
     public static function getCliente()
     {
-        /* Lo primero qye hay que tener en cuenta que parece facil obtener la información
+        # Creamos variables de informacion de la petición actual.
+		$info['cliente'] = $_SERVER['HTTP_USER_AGENT'];
+        /* Lo primero que hay que tener en cuenta que parece facil obtener la información
          * del SISTEMA OPERATIVO Y NAVEGADOR, pero hay muchos parametros que pueden influir
          * como las versiones ambos 
          * Según encuentro hay opciones mejores como utilizar:
@@ -44,33 +46,53 @@ class ModdispcustomHelper
          * y ademas tiene una web donde van actualizando los sistemas opertativos, navegadores y versiones
          * tiene un fichero xml que pesa 82,5 mg... */
          
-         // Bueno de momento intentamos perter estas opciones.. 
-        $browser=array("IE","OPERA","MOZILLA","NETSCAPE","FIREFOX","SAFARI","CHROME");
-		$os=array("WIN","MAC","LINUX","ANDROID","OS");
+         // Bueno de momento intentamos comprobar estas opciones.. 
+        # Creamos array con posibles navegadores y sistema operativos
+        # Mozilla que esta al principio no lo reconoce,
+        # ver informacion instruccion strpos http://php.net/manual/es/function.strpos.php
+        # Otra cosa importante es el orden del array ya que por ejemplo:
+        # ANDROID es un LINUX , por lo que si ponemos primero linux
+		# va dejar de buscar si pondrá como 'os' que es LINUX
+		
+        
+        $browser=array("IE","OPERA","MOZILLA","NETSCAPE","FIREFOX","CHROME","SAFARI");
+		$os=array("IPHONE","ANDROID","WIN","MACINTOSH","UBUNTU","LINUX","OS");
  
 		# definimos unos valores por defecto para el navegador y el sistema operativo
 		$info['browser'] = "OTHER";
 		$info['os'] = "OTHER";
- 
+		
 		# buscamos el navegador con su sistema operativo
 		foreach($browser as $parent)
 		{
-			$s = strpos(strtoupper($_SERVER['HTTP_USER_AGENT']), $parent);
+			$s = strpos(strtoupper($info['cliente']), $parent);
 			$f = $s + strlen($parent);
-			$version = substr($_SERVER['HTTP_USER_AGENT'], $f, 15);
+			$version = substr($info['cliente'], $f, 15);
 			$version = preg_replace('/[^0-9,.]/','',$version);
 			if ($s)
 			{
 				$info['browser'] = $parent;
 				$info['browser-version'] = $version;
+				break;
 			}
 		}		
  
 		# obtenemos el sistema operativo
 		foreach($os as $val)
 		{
-		if (strpos(strtoupper($_SERVER['HTTP_USER_AGENT']),$val)!==false)
+		$s = strpos(strtoupper($info['cliente']), $val);	
+		if ($s)
+			{
 			$info['os'] = $val;
+			# Ahora metemos la version del sistema operativo
+			$f = $s + strlen($val);
+			# Buscamos version 
+			$version = substr($info['cliente'], $f, 15);
+			$version = preg_replace('/[^0-9,.]/','',$version);
+			$info['os-version'] = $version;
+			#Salimos de bucle ya que encontramos sistema operativo
+			break;
+			}
 		}
  
 		# devolvemos el array de valores
@@ -79,13 +101,6 @@ class ModdispcustomHelper
         
 		
     }
-    /* Esta funcion es simplemente para ver que nos muestra  $_SERVER['HTTP_USER_AGENT']
-     * luego después de las pruebas tendremos que eliminarla... 
-     */
-     public static function getBrutocliente()
-    {
-		$brutoCliente = $_SERVER['HTTP_USER_AGENT'];
-		return $brutoCliente;
-	}
+    
     
 }

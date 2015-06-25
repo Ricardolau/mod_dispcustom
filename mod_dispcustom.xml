@@ -37,15 +37,17 @@
 
 				<field name="sistemaoperativo" type="checkboxes" label="Sistemas Operativo">
 					<option value="win">Windows</option>
-					<option value="mac">Mac</option>
+					<option value="mac">Macintosh</option>
 					<option value="linux">Linux</option>
 					<option value="android">Android</option>
-					<option value="OS">OS</option>
+					<option value="Iphone">Iphone</option>
 				</field>
 				<field name="navegador" type="checkboxes" label="Navegador">
-					<option value="exp">Explorer</option>
+					<option value="explorer">Explorer</option>
 					<option value="chrome">Chrome</option>
 					<option value="Firefox">Mozilla</option>
+					<option value="Opera">Opera</option>
+
 				</field>
 
 				
