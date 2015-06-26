@@ -1,10 +1,10 @@
 === MODULO CUSTOM JOOMLA 2.5 ADAPTABLE A DISPOSITIVO ===
-Replanteamiento de componente:
-- Crear un componente que cargue un articulo y lo muestre en la posición que indiquemos.
+Replanteamiento de modulo:
+- Crear un modulo que cargue un articulo y lo muestre en la posición que indiquemos.
 - En la parte administrativa que nos permita 
         -Seleccionar un articulo : Nos haga un selecte y nos muestre el ID del articulos y su titulo.
-        -Que tenga un select que nos permita cambiar el nombre del modulo con por el titulo del articulo.
-        -Que nos permita añadir contenido con plugin.. ???
+        -Seleccionar Sistema Operativo y Navegador en el que se muestra o no se muestra.
+        -Seleccionar un permita cambiar el titulo del modulo por el titulo del articulo.
         
 
 
@@ -28,6 +28,7 @@ https://docs.joomla.org/J2.5:Developing_a_MVC_Component/Adding_language_manageme
 - La clase que pretendía utilizar:JApplicationWebClient()
 Me parece que solo vale para 3.2 , por lo que tendré que buscar otra soluion.
 http://forum.joomla.org/viewtopic.php?f=713&t=889634
+POR LO  QUE SEGURAMENTE TENGAMOS VERSIONES DISTINTAS PARA JOOMLA 2.5 Y 3+
 
 
 

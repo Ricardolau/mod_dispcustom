@@ -37,27 +37,22 @@ class ModdispcustomHelper
         # Creamos variables de informacion de la petición actual.
 		$info['cliente'] = $_SERVER['HTTP_USER_AGENT'];
         /* Lo primero que hay que tener en cuenta que parece facil obtener la información
-         * del SISTEMA OPERATIVO Y NAVEGADOR, pero hay muchos parametros que pueden influir
-         * como las versiones ambos 
-         * Según encuentro hay opciones mejores como utilizar:
-         * get_browser .. pero esta necesita que tengamos en el servidor el archivo browscap.ini
-         * algo que no tiene todos los servidores.
-         * hay un proyecto github sobre esto : https://github.com/browscap/browscap-php
-         * y ademas tiene una web donde van actualizando los sistemas opertativos, navegadores y versiones
-         * tiene un fichero xml que pesa 82,5 mg... */
-         
-         // Bueno de momento intentamos comprobar estas opciones.. 
-        # Creamos array con posibles navegadores y sistema operativos
-        # Mozilla que esta al principio no lo reconoce,
-        # ver informacion instruccion strpos http://php.net/manual/es/function.strpos.php
-        # Otra cosa importante es el orden del array ya que por ejemplo:
-        # ANDROID es un LINUX , por lo que si ponemos primero linux
-		# va dejar de buscar si pondrá como 'os' que es LINUX
-		
-        
+         * del SISTEMA OPERATIVO Y NAVEGADOR, pero estos datos pueden influir según navegador
+         * que se utilice.
+         * ver más info en : https://github.com/Ricardolau/mod_dispcustom/wiki/Cosas-curiosas-que-aprendo#_serverhttp_user_agent
+        */ 
+        # Array de posibles Navegadores y Sistemas Operativos.
         $browser=array("IE","OPERA","MOZILLA","NETSCAPE","FIREFOX","CHROME","SAFARI");
 		$os=array("IPHONE","ANDROID","WIN","MACINTOSH","UBUNTU","LINUX","OS");
- 
+		/* Teniendo en cuenta: 
+		 * - La primera palabra que nos genera $info['cliente] no la tiene en cuenta
+		 *   por causa del funcionamiento la instrucción strpos , ver más info en http://php.net/manual/es/function.strpos.php
+		 * - Tener en cuenta que el orden en el que se ponga los sistemas opertativo y navegadores es importante, ya que la funcion
+		 *   cuando encuentra uno ellos, no sigue buscando los siguientes.
+		 *   Ejemplo: Ponemos ANDROID primero ya que $info['cliente'] contiene tambien LINUX, fijo.
+		 * - La version del sistema opertativo, no siempre funciona.
+		 * */
+              
 		# definimos unos valores por defecto para el navegador y el sistema operativo
 		$info['browser'] = "OTHER";
 		$info['os'] = "OTHER";
