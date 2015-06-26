@@ -36,26 +36,27 @@
 				
 
 				<field name="sistemaoperativo" type="checkboxes" label="Sistemas Operativo">
-					<option value="win">Windows</option>
-					<option value="mac">Macintosh</option>
-					<option value="linux">Linux</option>
-					<option value="android">Android</option>
-					<option value="Iphone">Iphone</option>
+					<option value="WIN">Windows</option>
+					<option value="MACINTOSH">Macintosh</option>
+					<option value="LINUX">Linux</option>
+					<option value="ANDROID">Android</option>
+					<option value="IPHONE">Iphone</option>
 				</field>
 				<field name="navegador" type="checkboxes" label="Navegador">
-					<option value="explorer">Explorer</option>
-					<option value="chrome">Chrome</option>
-					<option value="Firefox">Mozilla</option>
-					<option value="Opera">Opera</option>
+					<option value="IE">Explorer</option>
+					<option value="CHROME">Chrome</option>
+					<option value="FIREFOX">Mozilla</option>
+					<option value="OPERA">Opera</option>
+					<option value="SAFARI">Safari</option>
 
 				</field>
 
 				
 				<field
-					name="prepare_content"
+					name="filtro"
 					type="radio"
-					label="MOD_DISPCUSTOM_FIELD_PREPARE_CONTENT_LABEL"
-					description="MOD_DISPCUSTOM_FIELD_PREPARE_CONTENT_DESC"
+					label="MOD_DISPCUSTOM_FIELD_FILTRO_INCLUIR_LABEL"
+					description="MOD_DISPCUSTOM_FIELD_INCLUIR_DESC"
 					default="0">
 					<option
 						value="0">JNo</option>

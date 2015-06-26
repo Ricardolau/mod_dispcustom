@@ -14,13 +14,42 @@ require_once dirname(__FILE__).'/helper.php';
 // Cargamos datos de item que seleccionamos en parametros (helper)
 $items = ModdispcustomHelper::getItems($params);
 // Cargamos datos de cliente en bruto( datos sistema opertativo y mas de usuario)
-$cliente = ModdispcustomHelper::getcliente();
+$cliente = ModdispcustomHelper::getcliente($params);
 
-if ($params->def('prepare_content', 1))
-{
-	JPluginHelper::importPlugin('content');
-	$module->content = JHtml::_('content.prepare', $module->content, '', 'mod_dispcustom.content');
+# Ahora simplente comprobamos si hay coincidencia en SO o Nav , si la hay
+# mostramos o excluimos según nos indique el params->filtro
+# donde 0 es Excluir
+# y 1 es mostrar.
+$mostramos = 'NO';
+if ($params->get('filtro')>0){
+	$mostramos = 'SI';
 }
+if ($cliente['coincideSO'] == 'SI' OR $cliente['coincideNav'] == 'SI') {
+	$mostramos = $mostramos.'+SI';
+} else {
+	$mostramos = $mostramos.'+NO';
+} 
+    
+#$mostramos = $mostramos . $cliente['coincideSO'];
+
+
+
+
+foreach ($items as $row) {
+$images = json_decode($row->images);
+$id = $row->id;
+$category = $row->category;
+$title = $row->title;
+$introtext = $row->introtext;
+$alias = $row->alias;
+$articulo = $row;
+}
+
+
+
+$module->content = $introtext;
+
+# En la linea anterior añadimos el contenido items en module -> content 
 
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 

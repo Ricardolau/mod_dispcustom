@@ -32,7 +32,7 @@ class ModdispcustomHelper
 		
     }
     
-    public static function getCliente()
+    public static function getCliente(&$params)
     {
         # Creamos variables de informacion de la petición actual.
 		$info['cliente'] = $_SERVER['HTTP_USER_AGENT'];
@@ -42,8 +42,8 @@ class ModdispcustomHelper
          * ver más info en : https://github.com/Ricardolau/mod_dispcustom/wiki/Cosas-curiosas-que-aprendo#_serverhttp_user_agent
         */ 
         # Array de posibles Navegadores y Sistemas Operativos.
-        $browser=array("IE","OPERA","MOZILLA","NETSCAPE","FIREFOX","CHROME","SAFARI");
-		$os=array("IPHONE","ANDROID","WIN","MACINTOSH","UBUNTU","LINUX","OS");
+        $browser=array("IE","OPERA","FIREFOX","CHROME","SAFARI");
+		$os=array("IPHONE","ANDROID","WIN","MACINTOSH","LINUX");
 		/* Teniendo en cuenta: 
 		 * - La primera palabra que nos genera $info['cliente] no la tiene en cuenta
 		 *   por causa del funcionamiento la instrucción strpos , ver más info en http://php.net/manual/es/function.strpos.php
@@ -89,7 +89,36 @@ class ModdispcustomHelper
 			break;
 			}
 		}
- 
+		###############################################################
+		# Ahora comprobamos si NAVEGADOR o SO está incluido o excluido#
+		###############################################################
+		
+		
+		# Comprobamos si está seleccionado el Sistema Operativo de cliente.
+		$SistemasOperativos = $params->get('sistemaoperativo');
+		foreach($SistemasOperativos as $SistemaOperativo)
+			{
+				
+				if ($SistemaOperativo == $info['os'])
+				{
+				$info['coincideSO'] = 'SI';
+				break;
+				}
+			}
+		# Comprobamos si está seleccionado el Navegador de cliente.
+		$Navegadores = $params->get('navegador');
+		foreach($Navegadores as $Navegador)
+			{
+				
+				if ($Navegador == $info['browser'])
+				{
+				$info['coincideNav'] = 'SI';
+				break;
+				}
+			}
+		
+		
+		
 		# devolvemos el array de valores
 		return $info;
         
