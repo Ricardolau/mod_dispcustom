@@ -56,8 +56,8 @@
 					name="filtro"
 					type="radio"
 					label="MOD_DISPCUSTOM_FIELD_FILTRO_INCLUIR_LABEL"
-					description="MOD_DISPCUSTOM_FIELD_INCLUIR_DESC"
-					default="0">
+					description="MOD_DISPCUSTOM_FIELD_FILTRO_INCLUIR_DESC"
+					default="1">
 					<option
 						value="0">JNo</option>
 					<option

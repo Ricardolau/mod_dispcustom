@@ -93,7 +93,8 @@ class ModdispcustomHelper
 		# Ahora comprobamos si NAVEGADOR o SO está incluido o excluido#
 		###############################################################
 		
-		
+		# Hay que saber si hay parametro marcados porque sino genera un error 
+		if ($params->get('sistemoperativo')){
 		# Comprobamos si está seleccionado el Sistema Operativo de cliente.
 		$SistemasOperativos = $params->get('sistemaoperativo');
 		foreach($SistemasOperativos as $SistemaOperativo)
@@ -105,6 +106,12 @@ class ModdispcustomHelper
 				break;
 				}
 			}
+		}
+		
+		
+		
+		# Hay que saber si hay parametro marcados porque sino genera un error 
+		if ($params->get('navegador')){
 		# Comprobamos si está seleccionado el Navegador de cliente.
 		$Navegadores = $params->get('navegador');
 		foreach($Navegadores as $Navegador)
@@ -116,7 +123,7 @@ class ModdispcustomHelper
 				break;
 				}
 			}
-		
+		}
 		
 		
 		# devolvemos el array de valores

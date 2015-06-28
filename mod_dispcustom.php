@@ -30,10 +30,10 @@ if ($cliente['coincideSO'] == 'SI' OR $cliente['coincideNav'] == 'SI') {
 	$mostramos = $mostramos.'+NO';
 } 
     
-#$mostramos = $mostramos . $cliente['coincideSO'];
+# Ahora según resultado mostramos o no debemos continuar cargar o no el modulo.
 
 
-
+if (($mostramos <> "NO+SI") & ($mostramos <> "SI+SI")){
 
 foreach ($items as $row) {
 $images = json_decode($row->images);
@@ -54,3 +54,5 @@ $module->content = $introtext;
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 
 require JModuleHelper::getLayoutPath('mod_dispcustom', $params->get('layout', 'default'));
+}
+
