@@ -18,22 +18,23 @@ $cliente = ModdispcustomHelper::getcliente($params);
 
 # Ahora simplente comprobamos si hay coincidencia en SO o Nav , si la hay
 # mostramos o excluimos según nos indique el params->filtro
-# donde 0 es Excluir
-# y 1 es mostrar.
-$mostramos = 'NO';
+# creando variables $mostramos donde 0 es Excluir
+# y 1 mayor es mostrar.
+$mostramos = 0;
 if ($params->get('filtro')>0){
-	$mostramos = 'SI';
-}
-if ($cliente['coincideSO'] == 'SI' OR $cliente['coincideNav'] == 'SI') {
-	$mostramos = $mostramos.'+SI';
-} else {
-	$mostramos = $mostramos.'+NO';
+	$mostramos = 1;
 } 
-    
+$sumaCoincidencia = $cliente['coincideSO'] + $cliente['coincideNav'];
+if (($sumaCoincidencia > 0) & ($mostramos == 1)) {
+	
+	$mostramos = ($mostramos -$sumaCoincidencia);
+} else {
+	$mostramos = ($mostramos +$sumaCoincidencia);
+	}
 # Ahora según resultado mostramos o no debemos continuar cargar o no el modulo.
 
 
-if (($mostramos <> "NO+SI") & ($mostramos <> "SI+SI")){
+if (($mostramos>0)){
 
 foreach ($items as $row) {
 $images = json_decode($row->images);

@@ -94,23 +94,25 @@ class ModdispcustomHelper
 		###############################################################
 		
 		# Hay que saber si hay parametro marcados porque sino genera un error 
-		if ($params->get('sistemoperativo')){
+		$info['coincideSO'] = 0;
+		$info['parametroOS'] = $params->get('so');
+		if ($params->get('so')){
 		# Comprobamos si está seleccionado el Sistema Operativo de cliente.
-		$SistemasOperativos = $params->get('sistemaoperativo');
+		$SistemasOperativos = $params->get('so');
 		foreach($SistemasOperativos as $SistemaOperativo)
 			{
 				
 				if ($SistemaOperativo == $info['os'])
 				{
-				$info['coincideSO'] = 'SI';
+				$info['coincideSO'] = 1;
 				break;
 				}
 			}
-		}
-		
+		} 
 		
 		
 		# Hay que saber si hay parametro marcados porque sino genera un error 
+		$info['coincideNav'] = 0;
 		if ($params->get('navegador')){
 		# Comprobamos si está seleccionado el Navegador de cliente.
 		$Navegadores = $params->get('navegador');
@@ -119,7 +121,7 @@ class ModdispcustomHelper
 				
 				if ($Navegador == $info['browser'])
 				{
-				$info['coincideNav'] = 'SI';
+				$info['coincideNav'] = 1;
 				break;
 				}
 			}
